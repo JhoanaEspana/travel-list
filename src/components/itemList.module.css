@@ -1,0 +1,13 @@
+.itemList_container {
+  padding: 16px 25px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  border-bottom: 1px solid #8381e5;
+}
+
+.itemList_content {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}

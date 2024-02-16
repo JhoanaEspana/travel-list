@@ -1,0 +1,37 @@
+.banner__container {
+  background-image: url('../assets/banner.png');
+  width: 100%;
+  height: 280px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner__content {
+  margin: 0 auto;
+  max-width: 680px;
+  height: 280px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  gap: 13px;
+}
+
+.banner__content h1 {
+  padding-bottom: 13px;
+  font-size: 36px;
+}
+
+.banner__title h3 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #d6d5fd;
+}
+
+.banner__title__date {
+  display: flex;
+  gap: 13px;
+}
+
+.banner__logo img {
+  float: right;
+}
