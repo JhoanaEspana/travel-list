@@ -21,6 +21,12 @@ function App() {
     )
   }
 
+  const handlerClearList = () => {
+    const confirmed = window.confirm('Are you sure you want to delete all items?')
+
+    if (confirmed) setItems([])
+  }
+
   return (
     <>
       <Header />
@@ -30,6 +36,7 @@ function App() {
           items={items}
           onDeleteItem={handleDeleteItem}
           onToggleItems={handleToggleItem}
+          onClearList={handlerClearList}
         />
       </main>
       <footer>

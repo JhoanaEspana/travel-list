@@ -1,12 +1,26 @@
+import { useState } from 'react'
 import ItemList from './ItemList'
 import style from './packingList.module.css'
 import Card from './ui/Card'
 
-const PackingList = ({ items, onDeleteItem, onToggleItems }) => {
+const PackingList = ({ items, onDeleteItem, onToggleItems, onClearList }) => {
+  const [sortBy, setSortBy] = useState('input')
+  let sortedItems
+
+  if (sortBy === 'input') sortedItems = items
+
+  if (sortBy === 'description')
+    sortedItems = items.slice().sort((a, b) => a.description.localeCompare(b.description))
+
+  if (sortBy === 'packed')
+    sortedItems = items.slice().sort((a, b) => Number(a.packed) - Number(b.packed))
+
+  console.log(sortedItems)
+
   return (
     <div className={style.packinglist__container}>
       <Card>
-        {items.map((items) => (
+        {sortedItems.map((items) => (
           <ItemList
             onDeleteItem={onDeleteItem}
             onToggleItems={onToggleItems}
@@ -19,17 +33,20 @@ const PackingList = ({ items, onDeleteItem, onToggleItems }) => {
           />
         ))}
       </Card>
-      <form className={style.packinglist__form}>
-        <select name='' id='' style={{ width: '200px', marginRight: '13px' }}>
-          <option defaultValue='selected' value='0'>
-            Sort by input order
-          </option>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
+      <div className={style.packinglist__form}>
+        <select
+          style={{ width: '200px', marginRight: '13px' }}
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
+          <option value='input'>Sort by input order</option>
+          <option value='description'>Sort by description</option>
+          <option value='packed'>Sort by packed status</option>
         </select>
-        <button>CLEAR LIST</button>
-      </form>
+        <button onClick={onClearList} disabled={sortedItems.length === 0}>
+          CLEAR LIST
+        </button>
+      </div>
     </div>
   )
 }
