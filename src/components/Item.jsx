@@ -1,15 +1,7 @@
 import styles from './itemList.module.css'
 import iconBook from '../assets/book.svg'
 
-const ItemList = ({
-  description,
-  quantity,
-  packed,
-  id,
-  onDeleteItem,
-  checked,
-  onToggleItems,
-}) => {
+const Item = ({ description, quantity, packed, id, onDeleteItem, checked, onToggleItems }) => {
   return (
     <div className={styles.itemList_container}>
       <div className={styles.itemList_content}>
@@ -28,4 +20,4 @@ const ItemList = ({
   )
 }
 
-export default ItemList
+export default Item

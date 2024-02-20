@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ItemList from './ItemList'
+import Item from './Item'
 import style from './packingList.module.css'
 import Card from './ui/Card'
 
@@ -15,13 +15,11 @@ const PackingList = ({ items, onDeleteItem, onToggleItems, onClearList }) => {
   if (sortBy === 'packed')
     sortedItems = items.slice().sort((a, b) => Number(a.packed) - Number(b.packed))
 
-  console.log(sortedItems)
-
   return (
     <div className={style.packinglist__container}>
       <Card>
         {sortedItems.map((items) => (
-          <ItemList
+          <Item
             onDeleteItem={onDeleteItem}
             onToggleItems={onToggleItems}
             key={items.id}
