@@ -11,3 +11,9 @@
   align-items: center;
   gap: 13px;
 }
+
+input[type='checkbox'] {
+  height: 20px;
+  width: 20px;
+  accent-color: #8381e5;
+}

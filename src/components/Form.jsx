@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './form.module.css'
 import Card from './ui/Card'
 
-const Form = () => {
+const Form = ({ onAddItems }) => {
   const [description, setDescription] = useState('')
   const [quantity, setQuantity] = useState(1)
 
@@ -17,9 +17,11 @@ const Form = () => {
       packed: false,
       id: Date.now(),
     }
+
+    onAddItems(newItem)
+
     setDescription('')
     setQuantity(1)
-    console.log(newItem)
   }
 
   return (

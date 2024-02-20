@@ -2,21 +2,20 @@ import ItemList from './ItemList'
 import style from './packingList.module.css'
 import Card from './ui/Card'
 
-const initialItems = [
-  { id: 1, description: 'Passports', quantity: 2, packed: false },
-  { id: 2, description: 'Socks', quantity: 12, packed: true },
-]
-
-const PackingList = () => {
+const PackingList = ({ items, onDeleteItem, onToggleItems }) => {
   return (
     <div className={style.packinglist__container}>
       <Card>
-        {initialItems.map((items) => (
+        {items.map((items) => (
           <ItemList
+            onDeleteItem={onDeleteItem}
+            onToggleItems={onToggleItems}
             key={items.id}
             description={items.description}
             quantity={items.quantity}
             packed={items.packed}
+            id={items.id}
+            checked={items.checked}
           />
         ))}
       </Card>
