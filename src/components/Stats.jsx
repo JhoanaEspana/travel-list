@@ -12,7 +12,7 @@ const Stats = ({ items }) => {
 
   return (
     <>
-      <p style={{ color: '#8381E5', textAlign: 'center', margin: '100px 0 0' }}>
+      <p style={{ color: '#8381E5', textAlign: 'center', margin: '100px 0 40px 0' }}>
         {percentage === 100
           ? 'You got everything! Ready to go ✈️'
           : `You have ${numItems} items on your list, and you already packed ${numPacked} (
